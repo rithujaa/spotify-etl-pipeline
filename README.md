@@ -6,7 +6,7 @@ This project is a **serverless ETL pipeline** that collects data from the **Spot
 
 ## 📊 Architecture Overview
 
-
+![ETL Flowchart](Spotify%20ETL%20Pipeline.png)
 
 ---
 
