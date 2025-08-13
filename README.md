@@ -13,11 +13,12 @@ This project is a **serverless ETL pipeline** that collects data from the **Spot
 ## 🛠 Tech Stack
 
 - **Spotify API** – Source of playlist data  
-- **AWS Lambda** – Serverless functions for extract and transform  
+- **AWS Lambda (Python)** – Serverless functions for extract and transform  
 - **Amazon S3** – Raw and processed data storage  
-- **Snowflake** – Cloud data warehouse  
-- **Snowpipe** – Automated data loading into Snowflake tables  
-- **Python** – Used for scripting Lambda functions  
+- **Snowflake (SQL)** – Data warehouse with structured tables, schema, and loading logic  
+- **Snowpipe** – Auto-ingestion of new files from S3  
+- **Python** – Used for scripting Lambda functions and Spotify API calls  
+- **SQL** – Used to define tables, stages, and data loading logic in Snowflake 
 
 ---
 
@@ -30,7 +31,7 @@ This project is a **serverless ETL pipeline** that collects data from the **Spot
    When new data is uploaded to S3, an S3 event triggers another Lambda function. This function cleans and reshapes the data into three structured CSV files: `songs`, `albums`, and `artists`. These files are then stored in a processed folder in S3.
 
 3. **Load**  
-   Snowpipe continuously monitors the processed folder in S3. When new CSV files are detected, it automatically loads them into corresponding tables in Snowflake — with relationships preserved via primary and foreign keys.
+   Snowpipe continuously monitors the processed folder in S3. When new CSV files are detected, it automatically loads them into corresponding SQL tables in Snowflake, with relationships preserved using primary and foreign keys.
 
 ---
 
@@ -49,7 +50,7 @@ spotify-etl-pipeline/
 ├── extract_lambda.py         # Lambda function to fetch data from Spotify API
 ├── transform_lambda.py       # Lambda function to clean and structure data
 ├── snowflake_setup.sql       # SQL script to create Snowflake tables, stage, and pipes
-├── Spotify ETL Pipeline.pdf  # Visual diagram of the ETL workflow
+├── Spotify ETL Pipeline.png  # Visual diagram of the ETL workflow
 └── README.md                 # You're reading it!
 ```
 
