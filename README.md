@@ -56,4 +56,4 @@ spotify-etl-pipeline/
 
 ## 📬 Contact
 
-If you’re also exploring data engineering, cloud projects, or working with APIs — I’d love to connect!
+If you’re also exploring data engineering or cloud projects — I’d love to connect!
